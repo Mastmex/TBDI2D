@@ -1,6 +1,8 @@
 #include <iostream>
+#include "classes/win/win.hpp"
 
 int main(){
-    std::cout<<"Hello world!"; //поприветствовал мир
+    win *a = new win;
+    a->start();
     return 0;
 }

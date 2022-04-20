@@ -9,8 +9,14 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 set(SFML_STATIC_LIBRARIES TRUE)
 set(CMAKE_CXX_FLAGS "-std=c++20")
 
+add_library(win STATIC ./source/classes/win/win.cpp)
+
 add_executable(TBDI2D source/main.cpp)
 set(SFML_DIR SFML-2.5.1/lib/cmake/SFML)
 target_include_directories(TBDI2D PUBLIC include)
 
+
+
 find_package(SFML 2.5 COMPONENTS audio graphics window system REQUIRED )
+target_link_libraries(win sfml-audio sfml-graphics sfml-window sfml-system)
+target_link_libraries(TBDI2D win)
