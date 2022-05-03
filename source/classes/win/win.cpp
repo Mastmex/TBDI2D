@@ -3,6 +3,13 @@ win::win()
 {
     this->window = new RenderWindow(VideoMode(960, 540),"TBDI2D");
 }
+/**
+ * @brief Отрисовка окна
+ * @author Mast_mex
+ * @version 0.1
+ * 
+ * @details Данный клас служит для отрисовки окна. В Нем устанавливаются все основные значения.
+ */
 win::~win(){
     delete window;
 }
