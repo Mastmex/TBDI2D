@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['_7ewin_1',['~win',['../classwin.html#a2086b0fc1a824407ccf7b0541e607be2',1,'win']]]
+  ['map_1',['map',['../classmap.html',1,'map'],['../classmap.html#abedfe6722ad83929739afd899c88fea4',1,'map::map()']]]
 ];
