@@ -1,7 +1,11 @@
 #include "win.hpp"
 win::win()
 {
-    this->window = new RenderWindow(VideoMode(960, 540),"TBDI2D");
+    st = new set();
+    sf::ContextSettings sett;
+    sett.antialiasingLevel = this->st->getAal();
+    this->window = new RenderWindow(VideoMode(this->st->getLength(), this->st->getHeight()),"TBDI2D",sf::Style::Default,sett);
+    window->setFramerateLimit(this->st->getFps());
 }
 /**
  * @brief Отрисовка окна
@@ -14,8 +18,6 @@ win::~win(){
     delete window;
 }
 void win::start(){
-    
-    window->setFramerateLimit(60);
     while (window->isOpen())
     {
         // check all the window's events that were triggered since the last iteration of the loop

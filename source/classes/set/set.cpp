@@ -9,7 +9,7 @@ set::set()
     ifstream config;
     int choose;
     string line;
-    config.open("./../triangles.cfg");
+    config.open("./../tbdi.cfg");
     if(config.is_open())
         cout<<"Configuration file loaded successful"<<endl;
     while (!config.eof())
