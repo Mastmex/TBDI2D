@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>The binding of dark souls: source/classes/win/win.hpp Source File</title>
+<title>The binding of dark souls: source/classes/menu/menu.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -61,42 +61,34 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_b2f33c71d4aa5e7af42a1ca61ff5af1b.html">source</a></li><li class="navelem"><a class="el" href="dir_93fd307e3a82e4579b26f0adf3f1a22d.html">classes</a></li><li class="navelem"><a class="el" href="dir_e20491f0d8e7555265e709d992aae1ca.html">win</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_b2f33c71d4aa5e7af42a1ca61ff5af1b.html">source</a></li><li class="navelem"><a class="el" href="dir_93fd307e3a82e4579b26f0adf3f1a22d.html">classes</a></li><li class="navelem"><a class="el" href="dir_d54560d2eb937ad5d3f8b3314423eaf6.html">menu</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">win.hpp</div>  </div>
+<div class="title">menu.hpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef WIN_HPP</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define WIN_HPP</span></div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef MENU_HPP</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define MENU_HPP</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;SFML/Graphics.hpp&quot;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;SFML/Window.hpp&quot;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;./../set/set.hpp&quot;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;./../menu/menu.hpp&quot;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">using namespace </span>sf;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="classwin.html">   12</a></span>&#160;<span class="keyword">class </span><a class="code" href="classwin.html">win</a></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;{</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    RenderWindow * window;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <a class="code" href="classset.html">set</a> *st;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <a class="code" href="classmenu.html">menu</a> *mn;</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="classmenu.html">   13</a></span>&#160;<span class="keyword">class </span><a class="code" href="classmenu.html">menu</a></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;{</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    sf::Texture* bg;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    sf::Sprite* bgs;</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <a class="code" href="classwin.html">win</a>();</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    ~<a class="code" href="classwin.html">win</a>();</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordtype">void</span> start();</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordtype">void</span> draw();</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;};</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <a class="code" href="classmenu.html#ad345b60b72c4992525cf064d5642c1d9">menu</a>();</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classmenu.html#a8048fa757faa4b706375c613cd6e09a1">draw</a>(sf::RenderWindow* <a class="code" href="classwin.html">win</a>);</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;};</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aclassmenu_html"><div class="ttname"><a href="classmenu.html">menu</a></div><div class="ttdoc">Класс, отвечающий за отображение меню.</div><div class="ttdef"><b>Definition:</b> menu.hpp:14</div></div>
-<div class="ttc" id="aclassset_html"><div class="ttname"><a href="classset.html">set</a></div><div class="ttdef"><b>Definition:</b> set.hpp:5</div></div>
+<div class="ttc" id="aclassmenu_html_a8048fa757faa4b706375c613cd6e09a1"><div class="ttname"><a href="classmenu.html#a8048fa757faa4b706375c613cd6e09a1">menu::draw</a></div><div class="ttdeci">void draw(sf::RenderWindow *win)</div><div class="ttdoc">Отрисовка меню</div><div class="ttdef"><b>Definition:</b> menu.cpp:25</div></div>
+<div class="ttc" id="aclassmenu_html_ad345b60b72c4992525cf064d5642c1d9"><div class="ttname"><a href="classmenu.html#ad345b60b72c4992525cf064d5642c1d9">menu::menu</a></div><div class="ttdeci">menu()</div><div class="ttdoc">Construct a new menu::menu object.</div><div class="ttdef"><b>Definition:</b> menu.cpp:9</div></div>
 <div class="ttc" id="aclasswin_html"><div class="ttname"><a href="classwin.html">win</a></div><div class="ttdef"><b>Definition:</b> win.hpp:13</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->

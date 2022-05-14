@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['load_6',['load',['../classmap.html#a4c65c3b66eb2891455f124dcdb933f69',1,'map']]]
+  ['draw_11',['draw',['../classmenu.html#a8048fa757faa4b706375c613cd6e09a1',1,'menu::draw()'],['../classwin.html#a6b2cfa98064e92d760a36e2ec29d7c26',1,'win::draw()']]]
 ];

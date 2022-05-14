@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['map_4',['map',['../classmap.html',1,'']]]
+  ['map_7',['map',['../classmap.html',1,'']]],
+  ['menu_8',['menu',['../classmenu.html',1,'']]]
 ];

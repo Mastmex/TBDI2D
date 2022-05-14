@@ -6,13 +6,14 @@ win::win()
     sett.antialiasingLevel = this->st->getAal();
     this->window = new RenderWindow(VideoMode(this->st->getLength(), this->st->getHeight()),"TBDI2D",sf::Style::Default,sett);
     window->setFramerateLimit(this->st->getFps());
+    this->mn = new menu();
 }
 /**
- * @brief Отрисовка окна
+ * @brief Основной цикл окна.
  * @author Mast_mex
  * @version 0.1
  * 
- * @details Данный метод служит для отрисовки окна. В нём устанавливаются все основные значения.
+ * @details Данный метод содержит в себе основной цикл окна, а так же отвечает за взаимодействие с пользователем.
  */
 win::~win(){
     delete window;
@@ -35,7 +36,25 @@ void win::start(){
         }
 
         // clear the window with black color
-        window->clear(Color::Black);
-        window->display();
+        this->draw();
     }
+}
+
+/**
+ * @brief Отрисовка окна
+ * @author Mast_mex
+ * @version 0.1
+ * @details Данный метод содержит в себе все необходимое для отрисовки окна.
+ */
+void win::draw()
+{
+    try {
+		this->window->clear(Color::Black);
+        mn->draw(this->window);
+        window->display();
+	}
+	catch (int a)
+	{
+		std::cout << "Exeption " << a;
+	}
 }

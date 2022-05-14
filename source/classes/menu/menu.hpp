@@ -1,25 +1,24 @@
 #ifndef MENU_HPP
 #define MENU_HPP
 
+#include "SFML/Graphics.hpp"
+
 /**
  * @brief Класс, отвечающий за отображение меню.
+ * @version 0.1
+ * @author Mast_mex
+ * @details Класс, отвечающий за отображение меню.
  * 
  */
 class menu
 {
 private:
-    /* data */
+    sf::Texture* bg;
+    sf::Sprite* bgs;
 public:
-    menu(/* args */);
-    ~menu();
+    menu();
+    void draw(sf::RenderWindow* win);
 };
 
-menu::menu(/* args */)
-{
-}
-
-menu::~menu()
-{
-}
 
 #endif
