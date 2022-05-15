@@ -82,6 +82,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a8048fa757faa4b706375c613cd6e09a1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmenu.html#a8048fa757faa4b706375c613cd6e09a1">draw</a> (sf::RenderWindow *<a class="el" href="classwin.html">win</a>)</td></tr>
 <tr class="memdesc:a8048fa757faa4b706375c613cd6e09a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Отрисовка меню  <a href="classmenu.html#a8048fa757faa4b706375c613cd6e09a1">More...</a><br /></td></tr>
 <tr class="separator:a8048fa757faa4b706375c613cd6e09a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af50c7dd2934a287995e42c752221c761"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmenu.html#af50c7dd2934a287995e42c752221c761">resize</a> (float x, float y)</td></tr>
+<tr class="memdesc:af50c7dd2934a287995e42c752221c761"><td class="mdescLeft">&#160;</td><td class="mdescRight">Изменение размеров окна  <a href="classmenu.html#af50c7dd2934a287995e42c752221c761">More...</a><br /></td></tr>
+<tr class="separator:af50c7dd2934a287995e42c752221c761"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Класс, отвечающий за отображение меню. </p>
@@ -106,9 +109,28 @@ Public Member Functions</h2></td></tr>
 
 <p>Construct a new <a class="el" href="classmenu.html#ad345b60b72c4992525cf064d5642c1d9" title="Construct a new menu::menu object.">menu::menu</a> object. </p>
 <dl class="section author"><dt>Author</dt><dd>Mast_mex </dd></dl>
-<dl class="section version"><dt>Version</dt><dd>0.1</dd></dl>
+<dl class="section version"><dt>Version</dt><dd>0.2</dd></dl>
 <p>Загружает текстуры, требуемые для отрисовки меню </p>
-
+<p>loading background</p>
+<p>loading buttons</p>
+<div class="fragment"><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{   </div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    {</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    this-&gt;bg = <span class="keyword">new</span> sf::Texture;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    this-&gt;bg-&gt;loadFromFile(<span class="stringliteral">&quot;./resources/textures/menu/menu800600.png&quot;</span>);</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    this-&gt;bgs=<span class="keyword">new</span> sf::Sprite();</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    this-&gt;bgs-&gt;setTexture(*this-&gt;bg);</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    this-&gt;bgs-&gt;setPosition(0,0);</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    }</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    {</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    this-&gt;btn = <span class="keyword">new</span> sf::Texture;    </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    this-&gt;btn-&gt;loadFromFile(<span class="stringliteral">&quot;./resources/textures/menu/buttons.png&quot;</span>);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    this-&gt;btns=<span class="keyword">new</span> sf::Sprite();</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    this-&gt;btns-&gt;setTexture(*this-&gt;btn);</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    this-&gt;btns-&gt;setPosition(200,245);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    }</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;}</div>
+</div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -130,14 +152,65 @@ Public Member Functions</h2></td></tr>
 
 <p>Отрисовка меню </p>
 <dl class="section author"><dt>Author</dt><dd>Mast_mex </dd></dl>
-<dl class="section version"><dt>Version</dt><dd>0.1</dd></dl>
+<dl class="section version"><dt>Version</dt><dd>0.2</dd></dl>
 <p>Отрисовывает задники меню, а так же активные кнопки. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">win</td><td></td></tr>
+    <tr><td class="paramname">win</td><td>Окно, в котором производится отрисовка </td></tr>
   </table>
   </dd>
 </dl>
+<div class="fragment"><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;{</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <a class="code" href="classwin.html">win</a>-&gt;<a class="code" href="classwin.html#a6b2cfa98064e92d760a36e2ec29d7c26">draw</a>(*this-&gt;bgs);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <a class="code" href="classwin.html">win</a>-&gt;<a class="code" href="classwin.html#a6b2cfa98064e92d760a36e2ec29d7c26">draw</a>(*this-&gt;btns);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;}</div>
+<div class="ttc" id="aclasswin_html"><div class="ttname"><a href="classwin.html">win</a></div><div class="ttdef"><b>Definition:</b> win.hpp:13</div></div>
+<div class="ttc" id="aclasswin_html_a6b2cfa98064e92d760a36e2ec29d7c26"><div class="ttname"><a href="classwin.html#a6b2cfa98064e92d760a36e2ec29d7c26">win::draw</a></div><div class="ttdeci">void draw()</div><div class="ttdoc">Отрисовка окна</div><div class="ttdef"><b>Definition:</b> win.cpp:51</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="af50c7dd2934a287995e42c752221c761"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af50c7dd2934a287995e42c752221c761">&#9670;&nbsp;</a></span>resize()</h2>
 
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void menu::resize </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Изменение размеров окна </p>
+<dl class="section author"><dt>Author</dt><dd>Mast_mex </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>0.1</dd></dl>
+<p>При изменении размеров окна, так же изменяет размер меню. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>Текущий размер экрана по горизониали </td></tr>
+    <tr><td class="paramname">y</td><td>Текущий размер экрана по вертикали </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="fragment"><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;{</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    this-&gt;bgs-&gt;setScale(x/800.0,y/600.0);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    this-&gt;btns-&gt;setScale(x/800.0,y/600.0);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    this-&gt;btns-&gt;setPosition((x-400.0*(x/800.0))/2,245*y/600.0);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;}</div>
+</div><!-- fragment -->
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>

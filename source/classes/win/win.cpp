@@ -8,6 +8,10 @@ win::win()
     window->setFramerateLimit(this->st->getFps());
     this->mn = new menu();
 }
+
+win::~win(){
+    delete window;
+}
 /**
  * @brief Основной цикл окна.
  * @author Mast_mex
@@ -15,9 +19,6 @@ win::win()
  * 
  * @details Данный метод содержит в себе основной цикл окна, а так же отвечает за взаимодействие с пользователем.
  */
-win::~win(){
-    delete window;
-}
 void win::start(){
     while (window->isOpen())
     {
@@ -31,7 +32,8 @@ void win::start(){
         if (event.type == Event::Resized)
                 {
                     FloatRect visibleArea(0, 0, event.size.width, event.size.height);
-                     window->setView(View(visibleArea));
+                    this->mn->resize(event.size.width,event.size.height);
+                    window->setView(View(visibleArea));
                 }
         }
 

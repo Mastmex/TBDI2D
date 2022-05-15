@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['_7ewin_15',['~win',['../classwin.html#a2086b0fc1a824407ccf7b0541e607be2',1,'win']]]
+  ['resize_16',['resize',['../classmenu.html#af50c7dd2934a287995e42c752221c761',1,'menu']]]
 ];

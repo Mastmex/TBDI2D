@@ -15,9 +15,12 @@ class menu
 private:
     sf::Texture* bg;
     sf::Sprite* bgs;
+    sf::Texture* btn;
+    sf::Sprite* btns;
 public:
     menu();
     void draw(sf::RenderWindow* win);
+    void resize(float x,float y);
 };
 
 

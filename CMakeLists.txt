@@ -19,7 +19,7 @@ target_include_directories(TBDI2D PUBLIC include)
 
 
 
-find_package(SFML 2.5 COMPONENTS audio graphics window system REQUIRED )
+find_package(SFML 2.5 COMPONENTS audio graphics window system REQUIRED)
 target_link_libraries(men sfml-audio sfml-graphics)
 target_link_libraries(win sfml-audio sfml-graphics men set)
 target_link_libraries(TBDI2D win)
