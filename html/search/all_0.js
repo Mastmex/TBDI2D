@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['draw_0',['draw',['../classmenu.html#a8048fa757faa4b706375c613cd6e09a1',1,'menu::draw()'],['../classwin.html#a6b2cfa98064e92d760a36e2ec29d7c26',1,'win::draw()']]]
+  ['button_0',['button',['../classbutton.html',1,'button'],['../classbutton.html#a68a092e970f1377441dfb77d3e30b762',1,'button::button()']]],
+  ['buttoncheck_1',['buttonCheck',['../classmenu.html#a301fe2d348cb555bcadb9d1658d7ecee',1,'menu']]]
 ];

@@ -73,26 +73,35 @@ $(function() {
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define MENU_HPP</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;SFML/Graphics.hpp&quot;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="classmenu.html">   13</a></span>&#160;<span class="keyword">class </span><a class="code" href="classmenu.html">menu</a></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;{</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    sf::Texture* bg;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    sf::Sprite* bgs;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    sf::Texture* btn;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    sf::Sprite* btns;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <a class="code" href="classmenu.html#ad345b60b72c4992525cf064d5642c1d9">menu</a>();</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classmenu.html#a8048fa757faa4b706375c613cd6e09a1">draw</a>(sf::RenderWindow* <a class="code" href="classwin.html">win</a>);</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classmenu.html#af50c7dd2934a287995e42c752221c761">resize</a>(<span class="keywordtype">float</span> x,<span class="keywordtype">float</span> y);</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;};</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="aclassmenu_html"><div class="ttname"><a href="classmenu.html">menu</a></div><div class="ttdoc">Класс, отвечающий за отображение меню.</div><div class="ttdef"><b>Definition:</b> menu.hpp:14</div></div>
-<div class="ttc" id="aclassmenu_html_a8048fa757faa4b706375c613cd6e09a1"><div class="ttname"><a href="classmenu.html#a8048fa757faa4b706375c613cd6e09a1">menu::draw</a></div><div class="ttdeci">void draw(sf::RenderWindow *win)</div><div class="ttdoc">Отрисовка меню</div><div class="ttdef"><b>Definition:</b> menu.cpp:39</div></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;./../button/button.hpp&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="classmenu.html">   14</a></span>&#160;<span class="keyword">class </span><a class="code" href="classmenu.html">menu</a></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    sf::Texture* bg;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    sf::Sprite* bgs;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    sf::Texture* btn;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    sf::Sprite* btns;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <a class="code" href="classbutton.html">button</a> *bt1,*bt2,*bt3,*bt4,*bt5;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    sf::Texture* frame;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    sf::Sprite* frames;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordtype">bool</span> showFrame;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordtype">float</span> framepx, framepy;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <a class="code" href="classmenu.html#ad345b60b72c4992525cf064d5642c1d9">menu</a>();</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classmenu.html#a8048fa757faa4b706375c613cd6e09a1">draw</a>(sf::RenderWindow* <a class="code" href="classwin.html">win</a>);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classmenu.html#af50c7dd2934a287995e42c752221c761">resize</a>(<span class="keywordtype">float</span> x,<span class="keywordtype">float</span> y);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classmenu.html#a301fe2d348cb555bcadb9d1658d7ecee">buttonCheck</a>(sf::Vector2i ev);</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;};</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aclassbutton_html"><div class="ttname"><a href="classbutton.html">button</a></div><div class="ttdoc">Класс отвечающий за кнопки.</div><div class="ttdef"><b>Definition:</b> button.hpp:11</div></div>
+<div class="ttc" id="aclassmenu_html"><div class="ttname"><a href="classmenu.html">menu</a></div><div class="ttdoc">Класс, отвечающий за отображение меню.</div><div class="ttdef"><b>Definition:</b> menu.hpp:15</div></div>
+<div class="ttc" id="aclassmenu_html_a301fe2d348cb555bcadb9d1658d7ecee"><div class="ttname"><a href="classmenu.html#a301fe2d348cb555bcadb9d1658d7ecee">menu::buttonCheck</a></div><div class="ttdeci">void buttonCheck(sf::Vector2i ev)</div><div class="ttdoc">Проверка нахождения курсора над кнопками</div><div class="ttdef"><b>Definition:</b> menu.cpp:95</div></div>
+<div class="ttc" id="aclassmenu_html_a8048fa757faa4b706375c613cd6e09a1"><div class="ttname"><a href="classmenu.html#a8048fa757faa4b706375c613cd6e09a1">menu::draw</a></div><div class="ttdeci">void draw(sf::RenderWindow *win)</div><div class="ttdoc">Отрисовка меню</div><div class="ttdef"><b>Definition:</b> menu.cpp:56</div></div>
 <div class="ttc" id="aclassmenu_html_ad345b60b72c4992525cf064d5642c1d9"><div class="ttname"><a href="classmenu.html#ad345b60b72c4992525cf064d5642c1d9">menu::menu</a></div><div class="ttdeci">menu()</div><div class="ttdoc">Construct a new menu::menu object.</div><div class="ttdef"><b>Definition:</b> menu.cpp:10</div></div>
-<div class="ttc" id="aclassmenu_html_af50c7dd2934a287995e42c752221c761"><div class="ttname"><a href="classmenu.html#af50c7dd2934a287995e42c752221c761">menu::resize</a></div><div class="ttdeci">void resize(float x, float y)</div><div class="ttdoc">Изменение размеров окна</div><div class="ttdef"><b>Definition:</b> menu.cpp:54</div></div>
+<div class="ttc" id="aclassmenu_html_af50c7dd2934a287995e42c752221c761"><div class="ttname"><a href="classmenu.html#af50c7dd2934a287995e42c752221c761">menu::resize</a></div><div class="ttdeci">void resize(float x, float y)</div><div class="ttdoc">Изменение размеров окна</div><div class="ttdef"><b>Definition:</b> menu.cpp:73</div></div>
 <div class="ttc" id="aclasswin_html"><div class="ttname"><a href="classwin.html">win</a></div><div class="ttdef"><b>Definition:</b> win.hpp:13</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->

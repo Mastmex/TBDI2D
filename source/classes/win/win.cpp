@@ -27,17 +27,25 @@ void win::start(){
         while (window->pollEvent(event))
         {
             // "close requested" event: we close the window
-            if (event.type == Event::Closed)
-                window->close();
-        if (event.type == Event::Resized)
+            switch(event.type)
+            {
+                case Event::Closed:
+                    window->close();
+                    break;
+                case Event::Resized:
+                    {
+                        FloatRect visibleArea(0, 0, event.size.width, event.size.height);
+                        this->mn->resize(event.size.width,event.size.height);
+                        window->setView(View(visibleArea));
+                        break;
+                    }
+                case Event::MouseMoved:
                 {
-                    FloatRect visibleArea(0, 0, event.size.width, event.size.height);
-                    this->mn->resize(event.size.width,event.size.height);
-                    window->setView(View(visibleArea));
+                    mn->buttonCheck(Mouse::getPosition(*this->window));
                 }
-        }
 
-        // clear the window with black color
+            }
+        }
         this->draw();
     }
 }
