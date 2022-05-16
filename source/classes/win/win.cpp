@@ -9,6 +9,12 @@ win::win()
     this->in = new intro;
     this->mn = new menu;
     this->current_sost = sost::load;
+    timer = std::clock();
+    this->mus.setVolume(this->st->getMusicVolume());
+    Image *icon = new Image;
+    icon->loadFromFile("./resources/textures/bonfire.png");
+    this->window->setIcon(icon->getSize().x,icon->getSize().y,icon->getPixelsPtr());
+    delete icon;
 }
 
 win::~win(){
@@ -28,7 +34,6 @@ void win::start(){
         Event event;
         while (window->pollEvent(event))
         {
-            // "close requested" event: we close the window
             switch(event.type)
             {
                 case Event::Closed:
@@ -49,6 +54,7 @@ void win::start(){
                     if(this->current_sost==sost::men)
                         mn->buttonCheck(Mouse::getPosition(*this->window));
                     break;
+                    
                 }
                 case Event::MouseButtonPressed:
                 {
@@ -56,6 +62,18 @@ void win::start(){
                 }
             }
         }
+        if(current_sost==sost::load)
+            {
+                if(((std::clock()-this->timer)/1000.0)>=5 && ((std::clock()-this->timer)/1000.0)<=5.5)
+                    {
+                        if(this->mus.getStatus()==sf::SoundSource::Playing)
+                            continue;
+                        this->mus.openFromFile("./resources/music/menu.wav");
+                        this->mus.play();
+                    }
+                if(((std::clock()-this->timer)/1000.0)>=17)
+                    this->current_sost=sost::men;
+            }
         this->draw();
     }
 }
@@ -80,4 +98,15 @@ void win::draw()
 	{
 		std::cout << "Exeption " << a;
 	}
+}
+
+void win::playLocMusic()
+{
+    if(this->current_sost == sost::load)
+        {
+            if(this->mus.Playing)
+                return;
+            this->mus.openFromFile("./resources/music/menu.wav");
+        }
+    this->mus.play();
 }

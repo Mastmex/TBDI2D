@@ -25,6 +25,8 @@ set::set()
             choose=2;
         if(line.starts_with("fps"))
             choose=3;
+        if(line.starts_with("music"))
+            choose=4;
         for(char p:line)
         {
             if(flag)
@@ -50,6 +52,9 @@ set::set()
             break;
         case 3:
             this->fps=hh;
+            break;
+        case 4:
+            this->musicVolume=hh;
             break;
         default:
             break;

@@ -4,7 +4,7 @@
 class set
 {
 private:
-    int height,length,aal,fps;
+    int height,length,aal,fps,musicVolume;
 public:
     set();
     ~set();
@@ -12,6 +12,7 @@ public:
     int getLength(){return this->length;}
     int getAal(){return this->aal;}
     int getFps(){return this->fps;}
+    int getMusicVolume(){return this->musicVolume;}
 };
 
 

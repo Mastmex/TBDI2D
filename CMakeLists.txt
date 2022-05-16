@@ -19,10 +19,12 @@ add_executable(TBDI2D source/main.cpp)
 set(SFML_DIR SFML-2.5.1/lib/cmake/SFML)
 target_include_directories(TBDI2D PUBLIC include)
 
+target_sources(TBDI2D PRIVATE TBDI2D.rc)
 
 
 find_package(SFML 2.5 COMPONENTS audio graphics window system REQUIRED)
-target_link_libraries(int sfml-audio sfml-graphics)
-target_link_libraries(men sfml-audio sfml-graphics btn)
-target_link_libraries(win sfml-audio sfml-graphics men set int)
+target_link_libraries(int sfml-audio sfml-graphics sfml-system)
+target_link_libraries(men sfml-audio sfml-graphics sfml-system btn)
+target_link_libraries(win sfml-audio sfml-graphics sfml-system men set int)
 target_link_libraries(TBDI2D win)
+
