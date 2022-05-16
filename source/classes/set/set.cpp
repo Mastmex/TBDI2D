@@ -10,8 +10,6 @@ set::set()
     int choose;
     string line;
     config.open("./../tbdi.cfg");
-    if(config.is_open())
-        cout<<"Configuration file loaded successful"<<endl;
     while (!config.eof())
     {
         bool flag=false;
@@ -60,5 +58,4 @@ set::set()
             break;
         }
     }
-    cout<<this->length<<"X"<<this->height;
 }
