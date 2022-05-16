@@ -13,6 +13,7 @@ add_library(win STATIC ./source/classes/win/win.cpp)
 add_library(set STATIC ./source/classes/set/set.cpp)
 add_library(men STATIC ./source/classes/menu/menu.cpp)
 add_library(btn STATIC ./source/classes/button/button.cpp)
+add_library(int STATIC ./source/classes/intro/intro.cpp)
 
 add_executable(TBDI2D source/main.cpp)
 set(SFML_DIR SFML-2.5.1/lib/cmake/SFML)
@@ -21,6 +22,7 @@ target_include_directories(TBDI2D PUBLIC include)
 
 
 find_package(SFML 2.5 COMPONENTS audio graphics window system REQUIRED)
+target_link_libraries(int sfml-audio sfml-graphics)
 target_link_libraries(men sfml-audio sfml-graphics btn)
-target_link_libraries(win sfml-audio sfml-graphics men set)
+target_link_libraries(win sfml-audio sfml-graphics men set int)
 target_link_libraries(TBDI2D win)
