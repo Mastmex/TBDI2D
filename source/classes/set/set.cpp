@@ -9,7 +9,7 @@ set::set()
     ifstream config;
     int choose;
     string line;
-    config.open("./../tbdi.cfg");
+    config.open("./tbdi.cfg");
     while (!config.eof())
     {
         bool flag=false;

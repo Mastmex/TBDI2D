@@ -32,9 +32,9 @@ void intro::draw(sf::RenderWindow *win)
     {
         win->draw(*this->lds);
     }
-    if(((std::clock()-timer)/1000.0<=11) && ((std::clock()-timer)/1000.0>5)){
+    if(((std::clock()-timer)/1000.0<=13) && ((std::clock()-timer)/1000.0>5)){
         win->draw(*this->diss);
     }
-    if((std::clock()-timer)/1000.0>11)
+    if((std::clock()-timer)/1000.0>13)
         win->draw(*this->prods);
 }
