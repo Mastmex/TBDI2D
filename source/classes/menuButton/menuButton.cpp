@@ -1,5 +1,5 @@
 #include "menuButton.hpp"
-
+#include <iostream>
 
 menuButton::menuButton(float x, float y, float length, float height, sf::RenderWindow *wind)
 {
@@ -21,11 +21,11 @@ menuButton::~menuButton()
 {
     delete this->win;
 }
-bool menuButton::isAbove(float x, float y)
+bool menuButton::isAbove(float x, float y,sf::Sprite *s)
 {
     if((x>=this->x*this->coex && x<=(this->x*this->coex+this->length*this->coex) && y>=this->y*this->coey && y<=(this->y*this->coey+this->height*this->coey)))
         {
-            this->win->draw(*this->frames);
+            s=this->frames;
             return true;
         }
     else return false;

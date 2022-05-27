@@ -18,7 +18,7 @@ private:
 public:
     menuButton(float x, float y, float length, float height, sf::RenderWindow *wind);
     ~menuButton();
-    bool isAbove(float x, float y) override;
+    bool isAbove(float x, float y, sf::Sprite *s);
     void resize(float c1, float c2) override;
 };
 

@@ -17,7 +17,7 @@ private:
     float coex, coey;
 public:
     button(float x, float y, float length, float height);
-    button();
+    button(){};
     virtual  bool isAbove(float x, float y);
     virtual void resize(float c1, float c2);
 };

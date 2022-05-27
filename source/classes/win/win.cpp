@@ -7,7 +7,7 @@ win::win()
     this->window = new RenderWindow(VideoMode(this->st->getLength(), this->st->getHeight()),"TBDI2D",sf::Style::Default,sett);
     window->setFramerateLimit(this->st->getFps());
     this->in = new intro;
-    this->mn = new menu;
+    this->mn = new menu(this->window);
     this->current_sost = sost::load;
     timer = std::clock();
     this->mus.setVolume(this->st->getMusicVolume());
@@ -56,12 +56,12 @@ void win::start(){
                     break;
                     
                 }
-                case Event::MouseButtonPressed:
-                {
-                    if(this->current_sost==sost::men)
-                        this->mn->buttonClicked(event);
-                    break;
-                }
+                // case Event::MouseButtonPressed:
+                // {
+                //     if(this->current_sost==sost::men)
+                //         this->mn->buttonClicked(event);
+                //     break;
+                // }
             }
         }
         if(current_sost==sost::load)

@@ -7,7 +7,7 @@
  * @version 0.3
  * @details Загружает текстуры, требуемые для отрисовки меню
  */
-menu::menu()
+menu::menu(sf::RenderWindow *win)
 {   
     /// \brief loading background
     {
@@ -27,23 +27,18 @@ menu::menu()
     }
     /// \brief making buttons
     {
-        this->bt1 = new button(200,245,400,50);
-        this->bt2 = new button(200,305,400,50);
-        this->bt3 = new button(200,365,400,50);
-        this->bt4 = new button(200,425,400,50);
-        this->bt5 = new button(200,485,400,50);
+        this->bt1 = new menuButton(200,245,400,50,win);
+        this->bt2 = new menuButton(200,305,400,50,win);
+        this->bt3 = new menuButton(200,365,400,50,win);
+        this->bt4 = new menuButton(200,425,400,50,win);
+        this->bt5 = new menuButton(200,485,400,50,win);
     }
     {
-        this->frame = new sf::Texture;
-        this->frame->loadFromFile("./resources/textures/menu/frame.png");
-        this->frames = new sf::Sprite;
-        this->frames->setTexture(*this->frame);
-        this->frames->setPosition(200,245);
         this->showFrame = false;
         this->framepx=1;
         this->framepy=1;
     }
-    this->curr=men::main;
+    // this->curr=men::main;
 }
 
 
@@ -59,8 +54,9 @@ void menu::draw(sf::RenderWindow* win)
     
     win->draw(*this->bgs);
     win->draw(*this->btns);
-    if(this->showFrame)
-        win->draw(*this->frames);
+        if(this->showFrame)
+        win->draw(this->frame);
+
 }
 
 /**
@@ -81,7 +77,6 @@ void menu::resize(float x, float y)
     this->bt3->resize(x/800.0,y/600.0);
     this->bt4->resize(x/800.0,y/600.0);
     this->bt5->resize(x/800.0,y/600.0);
-    this->frames->setScale(x/800.0,y/600.0);
     this->framepx = x/800.0;
     this->framepy = y/600.0;
 }
@@ -95,47 +90,16 @@ void menu::resize(float x, float y)
  */
 void menu::buttonCheck(sf::Vector2i ev)
 {
-    if(this->bt1->isAbove(ev.x,ev.y))
-        {
-            this->frames->setPosition(200*this->framepx,245*this->framepy);
-            this->showFrame = true;
-            return;
-        }
-    if(this->bt2->isAbove(ev.x,ev.y))
-        {
-            this->frames->setPosition(200*this->framepx,305*this->framepy);
-            this->showFrame = true;
-            return;
-        }
-    if(this->bt3->isAbove(ev.x,ev.y))
-        {
-            this->frames->setPosition(200*this->framepx,365*this->framepy);
-            this->showFrame = true;
-            return;
-        }
-    if(this->bt4->isAbove(ev.x,ev.y))
-        {
-            this->frames->setPosition(200*this->framepx,425*this->framepy);
-            this->showFrame = true;
-            return;
-        }
-    if(this->bt5->isAbove(ev.x,ev.y))
-        {
-            this->frames->setPosition(200*this->framepx,485*this->framepy);
-            this->showFrame = true;
-            return;
-        }
-    this->showFrame = false;
+    if(this->bt1->isAbove(ev.x,ev.y,&this->frame))
+        this->showFrame=true;
+    else if(this->bt2->isAbove(ev.x,ev.y,&this->frame))
+        this->showFrame=true;
+    else if(this->bt3->isAbove(ev.x,ev.y,&this->frame))
+        this->showFrame=true;
+    else if(this->bt4->isAbove(ev.x,ev.y,&this->frame))
+        this->showFrame=true;
+    else if(this->bt5->isAbove(ev.x,ev.y,&this->frame))
+        this->showFrame=true;
+    else this->showFrame=false;
     return;
-}
-
-void menu::buttonClicked(sf::Event ev)
-{
-    if(ev.mouseButton.button == sf::Mouse::Button::Left)
-    {
-        if(this->bt1->isAbove(ev.mouseButton.x,ev.mouseButton.y))
-        {
-            
-        }
-    }
 }
