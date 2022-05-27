@@ -43,6 +43,7 @@ menu::menu()
         this->framepx=1;
         this->framepy=1;
     }
+    this->curr=men::main;
 }
 
 
@@ -126,4 +127,15 @@ void menu::buttonCheck(sf::Vector2i ev)
         }
     this->showFrame = false;
     return;
+}
+
+void menu::buttonClicked(sf::Event ev)
+{
+    if(ev.mouseButton.button == sf::Mouse::Button::Left)
+    {
+        if(this->bt1->isAbove(ev.mouseButton.x,ev.mouseButton.y))
+        {
+            
+        }
+    }
 }

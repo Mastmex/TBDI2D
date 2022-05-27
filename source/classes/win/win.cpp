@@ -58,6 +58,8 @@ void win::start(){
                 }
                 case Event::MouseButtonPressed:
                 {
+                    if(this->current_sost==sost::men)
+                        this->mn->buttonClicked(event);
                     break;
                 }
             }

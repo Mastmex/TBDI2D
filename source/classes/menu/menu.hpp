@@ -3,6 +3,13 @@
 
 #include "SFML/Graphics.hpp"
 #include "./../button/button.hpp"
+#include "./../context/context.hpp"
+
+enum men{
+    main,
+    options,
+    exit
+};
 
 /**
  * @brief Класс, отвечающий за отображение меню.
@@ -21,13 +28,18 @@ private:
     button *bt1,*bt2,*bt3,*bt4,*bt5;
     sf::Texture* frame;
     sf::Sprite* frames;
+    context *con;
     bool showFrame;
     float framepx, framepy;
+    int curr;
 public:
     menu();
     void draw(sf::RenderWindow* win);
     void resize(float x,float y);
     void buttonCheck(sf::Vector2i ev);
+    void buttonClicked(sf::Event ev);
+    void showCon();
+    void var1(menu* x);
 };
 
 
