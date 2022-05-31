@@ -10,6 +10,8 @@
     delete a;
     return 0;
 }
+
+
 #else
     int main(){
     win *a = new win();

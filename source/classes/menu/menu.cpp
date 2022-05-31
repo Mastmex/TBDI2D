@@ -43,7 +43,8 @@ menu::menu()
         this->framepx=1;
         this->framepy=1;
     }
-    this->curr=men::main;
+    this->curr=men::mmain;
+    this->showCont=false;
 }
 
 
@@ -61,6 +62,8 @@ void menu::draw(sf::RenderWindow* win)
     win->draw(*this->btns);
     if(this->showFrame)
         win->draw(*this->frames);
+    if(this->showCont)
+        this->con->show(win);
 }
 
 /**
@@ -84,6 +87,8 @@ void menu::resize(float x, float y)
     this->frames->setScale(x/800.0,y/600.0);
     this->framepx = x/800.0;
     this->framepy = y/600.0;
+    if(this->showCont)
+        this->con->resize(x,y);
 }
 /**
  * @brief Проверка нахождения курсора над кнопками
@@ -133,9 +138,11 @@ void menu::buttonClicked(sf::Event ev)
 {
     if(ev.mouseButton.button == sf::Mouse::Button::Left)
     {
-        if(this->bt1->isAbove(ev.mouseButton.x,ev.mouseButton.y))
+        if(this->bt3->isAbove(ev.mouseButton.x,ev.mouseButton.y))
         {
-            
+            this->con = new context("Are you shure?",&this->l1,&this->l2,40);
+            this->con->setPos(150,200);
+            this->showCont=true;
         }
     }
 }

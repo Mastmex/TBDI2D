@@ -6,9 +6,9 @@
 #include "./../context/context.hpp"
 
 enum men{
-    main,
+    mmain,
     options,
-    exit
+    exitt
 };
 
 /**
@@ -29,7 +29,8 @@ private:
     sf::Texture* frame;
     sf::Sprite* frames;
     context *con;
-    bool showFrame;
+    bool showFrame,showCont;
+    bool l1,l2;
     float framepx, framepy;
     int curr;
 public:

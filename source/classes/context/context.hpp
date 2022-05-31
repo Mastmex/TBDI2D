@@ -1,7 +1,7 @@
 #ifndef CONTEXT_HPP
 #define CONTEXT_HPP
 
-#include <SFML/Graphics.hpp>
+#include "SFML/Graphics.hpp"
 #include <string>
 #include "./../button/button.hpp"
 
@@ -16,6 +16,7 @@ private:
     sf::Sprite *sp;
     sf::Texture* frame;
     sf::Sprite* frames;
+    float initialPosX,initialPosY;
 public:
     context(std::string name,bool *var1, bool* var2,int size);
     void setPos(float x, float y);
