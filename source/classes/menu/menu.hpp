@@ -30,7 +30,7 @@ private:
     sf::Sprite* frames;
     context *con;
     bool showFrame,showCont;
-    bool l1,l2;
+    bool l1=false,l2=false;
     float framepx, framepy;
     int curr;
 public:
@@ -39,8 +39,8 @@ public:
     void resize(float x,float y);
     void buttonCheck(sf::Vector2i ev);
     void buttonClicked(sf::Event ev);
+    bool getClose(){return this->l1;}
     void showCon();
-    void var1(menu* x);
 };
 
 

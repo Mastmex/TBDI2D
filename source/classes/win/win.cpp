@@ -37,7 +37,7 @@ void win::start(){
             switch(event.type)
             {
                 case Event::Closed:
-                    window->close();
+                    this->window->close();
                     break;
                 case Event::Resized:
                     {
@@ -64,7 +64,7 @@ void win::start(){
                 }
             }
         }
-        if(current_sost==sost::load)
+        if(this->current_sost==sost::load)
             {
                 if(((std::clock()-this->timer)/1000.0)>=5 && ((std::clock()-this->timer)/1000.0)<=5.5)
                     {
@@ -76,8 +76,14 @@ void win::start(){
                 if(((std::clock()-this->timer)/1000.0)>=17)
                     this->current_sost=sost::men;
             }
+        if(this->current_sost==sost::men)
+        {
+            if(this->mn->getClose())
+                this->window->close();
+        }
         this->draw();
     }
+    
 }
 
 /**

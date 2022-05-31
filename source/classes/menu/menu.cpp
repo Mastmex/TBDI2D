@@ -43,6 +43,8 @@ menu::menu()
         this->framepx=1;
         this->framepy=1;
     }
+    this->con = new context("Are you shure?",&this->l1,&this->l2,40);
+    this->con->setPos(150,200);
     this->curr=men::mmain;
     this->showCont=false;
 }
@@ -60,7 +62,7 @@ void menu::draw(sf::RenderWindow* win)
     
     win->draw(*this->bgs);
     win->draw(*this->btns);
-    if(this->showFrame)
+    if(this->showFrame&&!this->showCont)
         win->draw(*this->frames);
     if(this->showCont)
         this->con->show(win);
@@ -100,6 +102,10 @@ void menu::resize(float x, float y)
  */
 void menu::buttonCheck(sf::Vector2i ev)
 {
+    if(this->showCont){
+        this->con->buttonCheck(ev);
+        return;
+    }
     if(this->bt1->isAbove(ev.x,ev.y))
         {
             this->frames->setPosition(200*this->framepx,245*this->framepy);
@@ -136,12 +142,19 @@ void menu::buttonCheck(sf::Vector2i ev)
 
 void menu::buttonClicked(sf::Event ev)
 {
+
     if(ev.mouseButton.button == sf::Mouse::Button::Left)
     {
-        if(this->bt3->isAbove(ev.mouseButton.x,ev.mouseButton.y))
+        if(this->showCont){
+        this->con->buttonClicked(ev);
+        if(this->l1||this->l2)
+            {
+                this->showCont=false;
+            }
+        return;
+    }
+        if(this->bt5->isAbove(ev.mouseButton.x,ev.mouseButton.y))
         {
-            this->con = new context("Are you shure?",&this->l1,&this->l2,40);
-            this->con->setPos(150,200);
             this->showCont=true;
         }
     }

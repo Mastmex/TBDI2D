@@ -10,6 +10,7 @@
 #include "./../intro/intro.hpp"
 #include <iostream>
 #include <thread>
+#include <string>
 using namespace sf;
 
 
